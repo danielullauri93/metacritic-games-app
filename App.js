@@ -1,14 +1,35 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
-
-const icon = require('./assets/icon.png');
-
+import { useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  ScrollView,
+  Image,
+} from "react-native";
+import { getLatestGames } from "./lib/metacritic";
 export default function App() {
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    getLatestGames().then((games) => {
+      setGames(games);
+    });
+  }, []);
   return (
     <View style={styles.container}>
-      <Image source={icon} style={{width: 100, height: 100}}/>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
+      <ScrollView>
+        {games.map((game) => (
+          <View key={game.slug} style={styles.card}>
+            <Image source={{ uri: game.image }} style={styles.image} />
+            <Text style={styles.title}>{game.title}</Text>
+            <Text style={styles.score}>{game.score}</Text>
+            <Text style={styles.description}>{game.description}</Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 }
@@ -16,8 +37,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#09f",
+    backgroundColor: "#000",
     alignItems: "center",
     justifyContent: "center",
+  },
+  card:{
+    
   },
 });

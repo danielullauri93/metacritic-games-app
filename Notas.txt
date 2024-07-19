@@ -1,0 +1,70 @@
+Función: getLatestGames
+Esta función obtiene una lista de los últimos juegos desde una API y devuelve una lista de objetos con información relevante sobre cada juego.
+
+Definición de la URL de la API:
+
+const LATEST_GAMES = "https://internal-prod.apigee.fandom.net/v1/xapi/finder/metacritic/web?sortBy=-metaScore&productType=games&page=1&releaseYearMin=1958&releaseYearMax=2024&offset=0&limit=24&apiKey=1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u";
+Esta es la URL que se utiliza para obtener la información de los juegos. Los parámetros de la URL especifican la ordenación, el tipo de producto, el rango de años de lanzamiento, la paginación, el límite de resultados y la clave de API.
+
+Obtención de datos crudos:
+
+const rawData = await fetch(LATEST_GAMES);
+const json = await rawData.json();
+
+Se hace una petición fetch a la URL, que devuelve una respuesta que se convierte a JSON.
+
+Extracción de los elementos relevantes:
+
+const { data: { items } } = json;
+Se desestructura la respuesta JSON para obtener el array items que contiene los juegos.
+
+Transformación de los datos:
+
+return items.map((item) => {
+  const { description, slug, releaseDate, image, criticScoreSummary, title } = item;
+  const { score } = criticScoreSummary;
+  const { bucketType, bucketPath } = image;
+  const img = `https://www.metacritic.com/a/img/${bucketType}${bucketPath}`;
+  return { description, releaseDate, score, slug, title, image: img };
+});
+Para cada juego en el array items, se extraen y transforman los datos necesarios para crear un nuevo objeto con la estructura deseada.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Función: getGameDetails
+
+Esta función obtiene los detalles de un juego específico usando su slug y devuelve un objeto con información detallada sobre el juego.
+
+Definición de la URL de la API con slug:
+
+const GAME_DETAILS = `https://internal-prod.apigee.fandom.net/v1/xapi/composer/metacritic/pages/games/${slug}/web?&apiKey=1MOZgmNFxvmljaQR1X9KAij9Mo4xAY3u`;
+Esta es la URL que se utiliza para obtener los detalles de un juego específico.
+
+Obtención de datos crudos:
+
+const rawData = await fetch(GAME_DETAILS);
+const json = await rawData.json();
+Se hace una petición fetch a la URL, que devuelve una respuesta que se convierte a JSON.
+
+Extracción de los componentes relevantes:
+
+const { components } = json;
+const { title, description, criticScoreSummary, images } = components[0];
+const { score } = criticScoreSummary;
+
+Obtención de la imagen del juego:
+
+const cardImage = images.find((image) => image.typeName === "cardImage");
+const { bucketType, bucketPath } = cardImage;
+const img = `https://www.metacritic.com/a/img/${bucketType}${bucketPath}`;
+Obtención de las reseñas:
+
+
+
+const rawReviews = components[3].data.items;
+const reviews = rawReviews.map((review) => {
+  const { quote, score, date, publicationName, author } = review;
+  return { quote, score, date, publicationName, author };
+});
+
+Retorno del objeto con los detalles del juego:
+
+return { img, title, slug, description, score, reviews };
