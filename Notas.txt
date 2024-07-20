@@ -68,3 +68,22 @@ const reviews = rawReviews.map((review) => {
 Retorno del objeto con los detalles del juego:
 
 return { img, title, slug, description, score, reviews };
+
+--------------------------------------------------------------------------------------------------------------------
+Puedes iniciar Chrome con una opción de línea de comandos que desactiva las restricciones de CORS.
+
+Windows:
+
+Cierra todas las ventanas de Chrome.
+
+Abre el símbolo del sistema y ejecuta el siguiente comando:
+
+start chrome --disable-web-security --user-data-dir="C:\chrome_dev"
+
+Mac:
+
+Cierra todas las ventanas de Chrome.
+
+Abre la Terminal y ejecuta el siguiente comando:
+
+open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
