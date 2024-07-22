@@ -28,29 +28,4 @@ export function Main() {
   );
 }
 
-const styles = StyleSheet.create({
-  card: {
-    marginBottom: 20,
-  },
-  image: {
-    width: 107,
-    height: 147,
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 10,
-    color: "#fff",
-  },
-  description: {
-    fontSize: 16,
-    color: "#eee",
-  },
-  score: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "green",
-    marginTop: 5,
-  },
-});
+
