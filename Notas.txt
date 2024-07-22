@@ -87,3 +87,14 @@ Cierra todas las ventanas de Chrome.
 Abre la Terminal y ejecuta el siguiente comando:
 
 open -na "Google Chrome" --args --disable-web-security --user-data-dir="/tmp/chrome_dev"
+
+----------------------------------------------------------------------------------------------------------------------
+Si hacemos un <ScrollView></ScrollView> se renderiza todo, aparte aparece en toda la pantalla del movil ocupando hasta el 
+status bar, para solucionarlo en Ios podemos usar <SafeAreaView></SafeAreaView> -> pero solo funcion para ios.
+
+Solucion: instalamos las constantes en expo "npx expo install expo-constants" una vez instaladas lo importamos "import Constants from "expo-constants" ", Que hace permite acceder a constantes para ver información de la aplicacion
+nota: Puedes acceder hasta nombre del dispositivo te ayuda a toda la informacion del dispositivo.
+
+"npx expo install react-native-safe-area-context" -> instalamos este paquete porque es mas utilizado para el desarrollo, aparte configura para que este se adapte debajo del status bar y tambien por la parte de abajo.
+
+
