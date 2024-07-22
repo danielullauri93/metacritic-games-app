@@ -1,8 +1,16 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  ActivityIndicator,
+} from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 // import Constants from "expo-constants";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { GameCard } from "./GameCard";
 export function Main() {
   const [games, setGames] = useState([]);
   const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
@@ -14,18 +22,15 @@ export function Main() {
   }, []);
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <ScrollView>
-        {games.map((game) => (
-          <View key={game.slug} style={styles.card}>
-            <Image source={{ uri: game.image }} style={styles.image} />
-            <Text style={styles.title}>{game.title}</Text>
-            <Text style={styles.score}>{game.score}</Text>
-            <Text style={styles.description}>{game.description}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      {games.length === 0 ? (
+        <ActivityIndicator size="large" color="#fff" /> // Si no hay juegos o carga los juegos , mostramos un spinner
+      ) : (
+        <ScrollView>
+          {games.map((game) => (
+            <GameCard key={game.slug} game={game} />
+          ))}
+        </ScrollView>
+      )}
     </View>
   );
 }
-
-
