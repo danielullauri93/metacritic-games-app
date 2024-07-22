@@ -1,14 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  // Text,
-  View,
-  // // Pressable,
-  // ScrollView,
-  // Image,
-} from "react-native";
-import { Main } from "./components/Main";
+import { StyleSheet, View } from "react-native";
+import { Main } from "./components/Main.jsx";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
 export function App() {
   return (
     <SafeAreaProvider>

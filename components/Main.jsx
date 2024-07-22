@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import {
   StyleSheet,
@@ -13,7 +12,7 @@ import { getLatestGames } from "../lib/metacritic";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 export function Main() {
   const [games, setGames] = useState([]);
-  const insets = useSafeAreaInsets();
+  const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
 
   useEffect(() => {
     getLatestGames().then((games) => {
@@ -21,8 +20,7 @@ export function Main() {
     });
   }, []);
   return (
-    <View style={styles.container}>
-      <StatusBar style="light" />
+    <View style={{ paddingTop: insets.top }}>
       <ScrollView>
         {games.map((game) => (
           <View key={game.slug} style={styles.card}>
@@ -38,14 +36,6 @@ export function Main() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#000",
-    alignItems: "center",
-    justifyContent: "center",
-    // paddingTop: Constants.statusBarHeight, // Hace que se renderice debajo del status bar tatno en ios como android
-    padding: 12,
-  },
   card: {
     marginBottom: 20,
   },
