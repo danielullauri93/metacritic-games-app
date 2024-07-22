@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  // Pressable,
-  ScrollView,
-  Image,
-} from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 // import Constants from "expo-constants";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -20,7 +13,7 @@ export function Main() {
     });
   }, []);
   return (
-    <View style={{ paddingTop: insets.top }}>
+    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
       <ScrollView>
         {games.map((game) => (
           <View key={game.slug} style={styles.card}>
