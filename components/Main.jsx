@@ -16,21 +16,23 @@ export function Main() {
   }, []);
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <View style={{ marginBottom: 20 }}>
-        <Logo />
-      </View>
       {games.length === 0 ? (
-        <ActivityIndicator size="large" color="#fff" /> // Si no hay juegos o carga los juegos , mostramos un spinner
+        <ActivityIndicator size="large" color="red" /> // Si no hay juegos o carga los juegos , mostramos un spinner
       ) : (
-        <FlatList
-          data={games}
-          keyExtractor={(game) => game.slug}
-          renderItem={({ item }) => <GameCard game={item} />}
-        >
-          {games.map((game) => (
-            <GameCard key={game.slug} game={game} />
-          ))}
-        </FlatList>
+        <>
+          <View style={{ marginBottom: 20 }}>
+            <Logo />
+          </View>
+          <FlatList
+            data={games}
+            keyExtractor={(game) => game.slug}
+            renderItem={({ item }) => <GameCard game={item} />}
+          >
+            {games.map((game) => (
+              <GameCard key={game.slug} game={game} />
+            ))}
+          </FlatList>
+        </>
       )}
     </View>
   );

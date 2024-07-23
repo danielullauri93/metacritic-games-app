@@ -98,3 +98,5 @@ nota: Puedes acceder hasta nombre del dispositivo te ayuda a toda la informacion
 "npx expo install react-native-safe-area-context" -> instalamos este paquete porque es mas utilizado para el desarrollo, aparte configura para que este se adapte debajo del status bar y tambien por la parte de abajo.
 
 ----------------------------------------------------------------------------------------------------------------------------
+
+VER CORRECCIONES

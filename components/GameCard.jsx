@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View, Image } from "react-native";
+
 export function GameCard({ game }) {
   return (
-    <View key={game.slug} style={styles.card}>
+    <View style={styles.card}>
       <Image source={{ uri: game.image }} style={styles.image} />
       <Text style={styles.title}>{game.title}</Text>
       <Text style={styles.score}>{game.score}</Text>
