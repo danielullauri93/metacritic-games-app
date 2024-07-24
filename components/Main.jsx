@@ -3,7 +3,7 @@ import { FlatList, View, ActivityIndicator } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 // import Constants from "expo-constants";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { GameCard } from "./GameCard";
+import { AnimatedGameCard, GameCard } from "./GameCard";
 import { Logo } from "../components/Logo";
 export function Main() {
   const [games, setGames] = useState([]);
@@ -26,7 +26,9 @@ export function Main() {
           <FlatList
             data={games}
             keyExtractor={(game) => game.slug}
-            renderItem={({ item }) => <GameCard game={item} />}
+            renderItem={({ item, index }) => (
+              <AnimatedGameCard game={item} index={index} />
+            )}
           >
             {games.map((game) => (
               <GameCard key={game.slug} game={game} />
