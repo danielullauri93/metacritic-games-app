@@ -99,6 +99,7 @@ nota: Puedes acceder hasta nombre del dispositivo te ayuda a toda la informacion
 
 ----------------------------------------------------------------------------------------------------------------------------
 
-VER CORRECCIONES 
-
-1:33:10
+en tailwind.config.js:
+agregamos donde esta el contenido que va a llevar tailwind css
+tambien se agrega que extensiones van para modificar
+----------------------------------------------------------------------------------------------------------------------------
