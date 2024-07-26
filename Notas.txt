@@ -103,3 +103,7 @@ en tailwind.config.js:
 agregamos donde esta el contenido que va a llevar tailwind css
 tambien se agrega que extensiones van para modificar
 ----------------------------------------------------------------------------------------------------------------------------
+
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking
+
+expo router es para crear la navegacion - expo linking es para crear enlaces web o para que la app sea vista en la web
