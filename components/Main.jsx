@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { FlatList, View, ActivityIndicator } from "react-native";
+import { FlatList, View, ActivityIndicator, Pressable } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 // import Constants from "expo-constants";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedGameCard, GameCard } from "./GameCard";
 import { Logo } from "../components/Logo";
 import { Link } from "expo-router";
+import { FontAwesome6 } from "@expo/vector-icons";
 export function Main() {
   const [games, setGames] = useState([]);
   const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
@@ -21,8 +22,10 @@ export function Main() {
         <Logo />
       </View>
 
-      <Link href="/about" className="text-blue-400 text-xl">
-        Ir al about
+      <Link asChild href="/about">
+        <Pressable>
+          <FontAwesome6 name="home" size={24} color="white" />
+        </Pressable>
       </Link>
 
       {games.length === 0 ? (

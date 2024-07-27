@@ -107,3 +107,9 @@ tambien se agrega que extensiones van para modificar
 npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking
 
 expo router es para crear la navegacion - expo linking es para crear enlaces web o para que la app sea vista en la web
+
+para que en los Link se tiene que poner asChild para que funcione un componente como Pressable u otro 
+
+----------------------------------------------------------------------------------------------------------------------------
+Para iconos expo vector icons: https://icons.expo.fyi/Index 
+para istalar el paquete: npm install @expo/vector-icons
