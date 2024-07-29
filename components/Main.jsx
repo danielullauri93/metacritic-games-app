@@ -6,7 +6,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedGameCard, GameCard } from "./GameCard";
 import { Logo } from "../components/Logo";
 import { Link } from "expo-router";
-import { FontAwesome6 } from "@expo/vector-icons";
+import { CircleInfoIcon } from "./Icons";
+
 export function Main() {
   const [games, setGames] = useState([]);
   const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
@@ -24,7 +25,7 @@ export function Main() {
 
       <Link asChild href="/about">
         <Pressable>
-          <FontAwesome6 name="home" size={24} color="white" />
+          <CircleInfoIcon />
         </Pressable>
       </Link>
 

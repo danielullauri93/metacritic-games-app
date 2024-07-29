@@ -1,12 +1,13 @@
 import { Link } from "expo-router";
 import { Pressable, ScrollView, Text } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import { HomeIcon } from "../components/Icons";
+
 export default function About() {
   return (
     <ScrollView className="pt-24">
       <Link asChild href="/">
         <Pressable>
-          <FontAwesome name="home" size={24} color="white" />
+          <HomeIcon />
         </Pressable>
       </Link>
       <Text className="text-white font-bold mb-8 text-2xl">
