@@ -19,8 +19,10 @@ export function Main() {
   }, []);
   return (
     <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}>
-      <View style={{ marginBottom: 20 }}>
-        <Logo />
+      <View className="flex-row justify-between items-center mb-4 mx-2">
+        <View>
+          <Logo />
+        </View>
       </View>
 
       <Link asChild href="/about">
