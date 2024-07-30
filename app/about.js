@@ -4,7 +4,7 @@ import { HomeIcon } from "../components/Icons";
 
 export default function About() {
   return (
-    <ScrollView className="pt-24">
+    <ScrollView className="pt-24 bg-black">
       <Link asChild href="/">
         <Pressable>
           {({ pressed }) => <HomeIcon style={{ opacity: pressed ? 0.5 : 1 }} />}
