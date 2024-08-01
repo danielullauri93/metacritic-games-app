@@ -114,4 +114,4 @@ para que en los Link se tiene que poner asChild para que funcione un componente 
 Para iconos expo vector icons: https://icons.expo.fyi/Index 
 para istalar el paquete: npm install @expo/vector-icons
 
-1:01:53
+1:14:49

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { FlatList, View, ActivityIndicator, Pressable } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 // import Constants from "expo-constants";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+// import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { AnimatedGameCard, GameCard } from "./GameCard";
 // import { Logo } from "../components/Logo";
 // import { Link } from "expo-router";
 // import { CircleInfoIcon } from "./Icons";
-
+import Screen from "./Screen";
 export function Main() {
   const [games, setGames] = useState([]);
-  const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
+  // const insets = useSafeAreaInsets(); // Usamos el hook para obtener las insets de la pantalla.
 
   useEffect(() => {
     getLatestGames().then((games) => {
@@ -18,7 +18,7 @@ export function Main() {
     });
   }, []);
   return (
-    <View className="bg-black">
+    <Screen>
       {games.length === 0 ? (
         <ActivityIndicator size="large" color="red" /> // Si no hay juegos o carga los juegos , mostramos un spinner
       ) : (
@@ -36,7 +36,7 @@ export function Main() {
           </FlatList>
         </>
       )}
-    </View>
+    </Screen>
   );
 }
 
